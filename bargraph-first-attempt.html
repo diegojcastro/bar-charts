@@ -6,7 +6,7 @@
     <title>Example Bar Graph</title>
     <script>
       $(document).ready(function(){
-        $("button").click(function(){
+        $("#paragraphToggle").click(function(){
           $("p").toggle(200);
         });
       });
@@ -34,6 +34,12 @@
 
   <main>
     <p>There might be fields or buttons to modify chart values or styles here.</p>
+    <form>
+      <label for="titleForm">Chart title:</label><br>
+      <input type="text" id="titleForm" name="titleForm" value="Input Chart Title"><br>
+    </form>
+    <button id="updateTitle">Update Chart Title</button>
+    <p></p>
     <article class="graphBox">
       <h2 id="graphTitle">Change this title.</h2>
       <section class="graphArea">
@@ -43,7 +49,7 @@
     <p>The chart itself should be added above this paragraph.</p>
   </main>
 
-  <button>Click me to toggle show/hide paragraphs</button>
+  <button id="paragraphToggle">Click me to toggle show/hide paragraphs</button>
 
 </body>
 </html>
