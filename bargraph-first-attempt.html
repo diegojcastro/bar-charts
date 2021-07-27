@@ -7,6 +7,10 @@
     <title>Example Bar Graph</title>
 
     <style>
+      * {
+        box-sizing: border-box;
+      }
+
       .graphBox {
         color:whitesmoke;
         margin: 0;
@@ -19,6 +23,13 @@
         margin: 10px;
         padding: 5px;
         background-color: whitesmoke;
+      }
+
+      .bar {
+        margin: 5px;
+        background-color:cornflowerblue;
+        height: 20px;
+        padding: 5px;
       }
     </style>
 </head>
@@ -37,14 +48,16 @@
     <p></p>
     <article class="graphBox">
       <h2 id="graphTitle">Change this title.</h2>
-      <section class="graphArea">
-        <p>This text should be replaced by the actual graph image later.</p>
+      <section class="graphArea" id="#graphArea">
+        <div id="firstBar" class="bar" style="background-color: crimson;"></div>
+        <p id="placeholderText">This text should be replaced by the actual graph image later.</p>
       </section>
     </article>
     <p>The chart itself should be added above this paragraph.</p>
   </main>
 
   <button id="paragraphToggle">Click me to toggle show/hide paragraphs</button>
+  <button id="getData">Change placeholder value with data.</button>
 
 </body>
 </html>
