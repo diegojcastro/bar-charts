@@ -3,22 +3,47 @@
 <head>
     <meta charset="utf-8">
     <script src="jquery-3.6.0.js"></script>
-    <title>Demo</title>
+    <title>Example Bar Graph</title>
     <script>
       $(document).ready(function(){
         $("button").click(function(){
-          $("p").hide();
+          $("p").toggle(200);
         });
       });
       </script>
+      <style>
+        .graphBox {
+          color:whitesmoke;
+          margin: 0;
+          padding: 5px;
+          background-color: darkslategray
+        }
+
+        .graphArea {
+          color:black;
+          margin: 10px;
+          padding: 5px;
+          background-color: whitesmoke;
+        }
+      </style>
 </head>
 <body>
-  <h2>This is a heading</h2>
+  <header>
+    <h1>Diego's simple bar graph creator</h1>
+  </header>
 
-  <p>This is a paragraph.</p>
-  <p>This is another paragraph.</p>
+  <main>
+    <p>There might be fields or buttons to modify chart values or styles here.</p>
+    <article class="graphBox">
+      <h2 id="graphTitle">Change this title.</h2>
+      <section class="graphArea">
+        <p>This text should be replaced by the actual graph image later.</p>
+      </section>
+    </article>
+    <p>The chart itself should be added above this paragraph.</p>
+  </main>
 
-  <button>Click me to hide paragraphs</button>
+  <button>Click me to toggle show/hide paragraphs</button>
 
 </body>
 </html>
