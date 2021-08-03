@@ -24,9 +24,8 @@ function graphArea(data) {
     }
   }
 
-  let chartHeight = $(".graphArea").height();
-  // $("#placeholderText").text(chartHeight);
-  $("#placeholderText").remove();
+  let chartHeight = $("#graphArea").height();
+
 
   for(let barCount = 0; barCount < numBars; barCount++) {
     let newBar = document.createElement("div");
@@ -44,7 +43,9 @@ function graphArea(data) {
     //$(newBar).height(chartHeight);
     $(newBar).height((data[barCount]/maxValue)*chartHeight);
     //$(newBar).height(myData[barCount]/maxValue+"%");
-    $("#firstBar").after(newBar);
+
+    // it used to be #firstBar instead of #graphArea
+    $("#graphArea").append(newBar);
 
   }
 
