@@ -5,15 +5,9 @@ function myTestFunc() {
 
 // I'm putting this outside the jquery document.ready so I can reference
 // it on the html. Is this bad form?
-function graphArea(data) {
-
-  data.reverse();
-
-  $("#firstBar").width(0);
-  $("#firstBar").attr({
-    "margin": "0px",
-    "padding": "0px"
-  });
+function graphArea(data, elementID) {
+  // The Jquery version of this method required reversing, this one doesn't.
+  //data.reverse();
 
   var numBars = data.length;
   // Quick pass to get the highest value for %size calculations
@@ -24,7 +18,7 @@ function graphArea(data) {
     }
   }
 
-  let chartHeight = $("#graphArea").height();
+  let chartHeight = $(elementID).height();
 
 
   for(let barCount = 0; barCount < numBars; barCount++) {
@@ -45,21 +39,11 @@ function graphArea(data) {
     //$(newBar).height(myData[barCount]/maxValue+"%");
 
     // it used to be #firstBar instead of #graphArea
-    $("#graphArea").append(newBar);
+    $(elementID).append(newBar);
 
   }
 
-  //Manual test of a last bar:
-  let lastBar = document.createElement("div");
-  $(lastBar).addClass("bar");
-  let percentHeight = 1.0;
-  $(lastBar).attr("title",percentHeight * chartHeight);
-  //Height looks very small. 100% of what?
-  $(lastBar).height(percentHeight * chartHeight);
-  $(lastBar).width("20%");
 
-  // Uncomment below to display test bar at start of graph
-  // $("#firstBar").after(lastBar);
 }
 
 $(document).ready(function(){
@@ -81,7 +65,7 @@ $(document).ready(function(){
 
 
 
-  $("#getData").click(function() { graphArea(myData) } );
+  $("#getData").click(function() { graphArea(myData, "#graphArea") } );
 
 
 });
