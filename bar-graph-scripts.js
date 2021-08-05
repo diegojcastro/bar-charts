@@ -53,6 +53,8 @@ function createGraphArea(parentElem) {
   // graph goes in the second grid element
   let whiteArea = document.createElement("div");
   $(whiteArea).addClass("graphArea");
+  // This didn't do anything:
+  // $(whiteArea).height = $(parentElem).height();
 
   // blank third element
   let elem3 = document.createElement("div");
