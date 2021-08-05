@@ -18,16 +18,31 @@
         background-color: darkslategray
       }
 
+      .grid-container {
+        display: grid;
+        grid-template-columns: 1fr 9fr;
+        grid-template-rows: 5fr 1fr;
+        grid-gap: 1px;
+        background-color: #2196F3;
+        padding: 1%;
+      }
+
+      .grid-container > div {
+        background-color: rgba(255, 255, 255, 0.8);
+        text-align: center;
+        padding: 20px;
+        font-size: 10px;
+      }
+
       .graphArea {
         color:black;
-        margin: 10px;
-        padding: 5px;
         background-color: whitesmoke;
-        width: 75%;
+        height: 100%;
+        width: 100%;
         margin-left: auto;
         margin-right: auto;
         min-width: 300px;
-        min-height: 100px;
+        min-height: 200px;
         display: flex;
         justify-content: center;
         align-items: flex-end;
@@ -37,6 +52,10 @@
         margin: 5px;
         background-color:cornflowerblue;
         padding: 5px;
+      }
+
+      #thirdTest {
+        background-color: burlywood;
       }
     </style>
 </head>
@@ -61,6 +80,10 @@
       <section class="graphArea" id="secondGraphArea" height=400 width=400>
 
       </section>
+
+      <section id="thirdTest" height=400 width=400>
+        <p>Placeholder text</p>
+      </section>
     </article>
     <p>The chart itself should be added above this paragraph.</p>
   </main>
@@ -68,6 +91,7 @@
   <button id="paragraphToggle">Click me to toggle show/hide paragraphs</button>
   <button id="getData">Change placeholder value with data.</button>
   <button id="testFunc" onclick="graphArea([5,4,3,2,1,7], '#secondGraphArea')">Call function from html.</button>
+  <button id="testFunc2" onclick="createGraphArea('#thirdTest')">Third test.</button>
 
 </body>
 </html>

@@ -9,11 +9,10 @@ function graphArea(data, elementID) {
   // The Jquery version of this method required reversing, this one doesn't.
   //data.reverse();
 
-  var numBars = data.length;
-  // Quick pass to get the highest value for %size calculations
-  let maxValue = getMaxValue(data);
 
-  let chartHeight = $(elementID).height();
+  var numBars = data.length;
+  let maxValue = getMaxValue(data);
+  let chartHeight = $(elementID).height() - 10; // -10 since there's 5px padding
 
 
   for(let barCount = 0; barCount < numBars; barCount++) {
@@ -39,6 +38,42 @@ function graphArea(data, elementID) {
   }
 
 
+}
+
+// Helper function to create a "canvas" (not the html canvas)
+// where we can draw our graph
+function createGraphArea(parentElem) {
+  let fullGraph = document.createElement("div");
+  $(fullGraph).addClass("grid-container");
+
+  // first grid element, a column for y axis
+  let elem1 = document.createElement("div");
+  $(elem1).html = "1";
+
+  // graph goes in the second grid element
+  let whiteArea = document.createElement("div");
+  $(whiteArea).addClass("graphArea");
+
+  // blank third element
+  let elem3 = document.createElement("div");
+
+  // x axis on last element
+  let elem4 = document.createElement("div");
+  $(elem4).text = "x-axis";
+
+  // A global reference to the graph elements.
+  var graphElements = [elem1, whiteArea, elem3, elem4];
+
+
+  $(fullGraph).append(elem1);
+  $(fullGraph).append(whiteArea);
+  $(fullGraph).append(elem3);
+  $(fullGraph).append(elem4);
+
+
+  graphArea([1,2,2,3,2,2], whiteArea);
+
+  $(parentElem).append(fullGraph);
 }
 
 // Helper function to clean up the code a bit.
