@@ -11,12 +11,7 @@ function graphArea(data, elementID) {
 
   var numBars = data.length;
   // Quick pass to get the highest value for %size calculations
-  let maxValue = 0;
-  for (let i = 0; i < numBars; i++ ) {
-    if (data[i] > maxValue) {
-      maxValue = data[i];
-    }
-  }
+  let maxValue = getMaxValue(data);
 
   let chartHeight = $(elementID).height();
 
@@ -45,6 +40,19 @@ function graphArea(data, elementID) {
 
 
 }
+
+// Helper function to clean up the code a bit.
+function getMaxValue(array) {
+  let max = 0;
+  for (let i = 0; i < array.length; i++ ) {
+    if (array[i] > max) {
+      max = array[i];
+    }
+  }
+  return max;
+}
+
+// TODO Use grid-area CSS to get the bottom and left margins
 
 $(document).ready(function(){
   $("#paragraphToggle").click(function(){
