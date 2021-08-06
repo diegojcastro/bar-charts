@@ -44,17 +44,16 @@ function graphArea(data, elementID) {
 // where we can draw our graph
 function createGraphArea(parentElem) {
   let fullGraph = document.createElement("div");
+
+
   $(fullGraph).addClass("grid-container");
 
   // first grid element, a column for y axis
   let elem1 = document.createElement("div");
   $(elem1).html = "1";
-
-  // graph goes in the second grid element
-  let whiteArea = document.createElement("div");
-  $(whiteArea).addClass("graphArea");
-  // This didn't do anything:
-  // $(whiteArea).height = $(parentElem).height();
+  $(elem1).css("background-color", "yellow");
+  $(elem1).css("color", "white");
+  $(elem1).css("font-size", "15px");
 
   // blank third element
   let elem3 = document.createElement("div");
@@ -62,9 +61,20 @@ function createGraphArea(parentElem) {
   // x axis on last element
   let elem4 = document.createElement("div");
   $(elem4).text = "x-axis";
+  $(elem4).css("background-color", "green");
+
+
+
+
+  // graph goes in the second grid element
+  let whiteArea = document.createElement("div");
+  $(whiteArea).addClass("graphArea");
+  // This didn't do anything:
+  // $(whiteArea).height = $(parentElem).height();
+
 
   // A global reference to the graph elements.
-  var graphElements = [elem1, whiteArea, elem3, elem4];
+  //var graphElements = [elem1, whiteArea, elem3, elem4];
 
 
   $(fullGraph).append(elem1);
